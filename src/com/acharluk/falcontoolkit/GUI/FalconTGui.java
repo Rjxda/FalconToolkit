@@ -20,6 +20,8 @@ public class FalconTGui extends JFrame{
     private JButton normalFastbootButton;
     private JButton fastbootButton;
     private JButton recoveryButton;
+    private JButton killADBButton;
+    private JButton startADBServerButton;
 
     public FalconTGui() {
         super("MGTool");
@@ -31,6 +33,8 @@ public class FalconTGui extends JFrame{
         loadRebootButtons();
 
         setVisible(true);
+
+
     }
 
     void loadMainButtons() {
@@ -73,6 +77,33 @@ public class FalconTGui extends JFrame{
                 tx.append(Command.rebootToRecovery());
             }
         });
+    }
+
+    void loadADBButtons() {
+
+    }
+
+    void loadFastbootButtons() {
+
+    }
+
+    void loadOtherButtons() {
+        killADBButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tx.append(Command.killADBServer());
+            }
+        });
+        startADBServerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tx.append(Command.startADBServer());
+            }
+        });
+    }
+
+    void loadEasyButtons() {
+
     }
 
 }
