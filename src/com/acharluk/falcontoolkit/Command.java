@@ -19,22 +19,28 @@ public class Command {
     /* Reboot tab */
     public static String rebootToFastboot() {
         send(adb, "reboot bootloader");
-        return "Rebooted into fastboot";
+        return "Rebooted into fastboot\n";
     }
     public static String rebootToRecovery() {
         send(adb, "reboot recovery");
-        return "Rebooted into recovery";
+        return "Rebooted into recovery\n";
     }
     public static String rebootToNormalFromADB() {
         send(adb, "reboot");
-        return "Rebooted into android";
+        return "Rebooted into android\n";
     }
     public static String rebootToNormalFromFastboot() {
         send(fastboot, "reboot");
-        return "Rebooted into android";
+        return "Rebooted into android\n";
     }
 
     /* ADB tab */
+    public static String ADBSideload(String path) {
+        return send(adb,"sideload " + path);
+    }
+    public static String ADBPush(String path, String remotePath) {
+        return send(adb,"push " + path + " " + remotePath);
+    }
 
     /* Fastboot tab */
 
@@ -64,6 +70,7 @@ public class Command {
             while((ch = in.read()) != -1) {
                 output+=((char)ch);
             }
+            output+="\n";
         } catch (IOException e) {
             e.printStackTrace();
         }
