@@ -24,7 +24,6 @@ public class Main {
             }
         };
         thread.start();
-        Command.rebootToFastboot();
     }
 
 }

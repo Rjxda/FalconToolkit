@@ -30,6 +30,9 @@ public class Command {
         send(fastboot, "reboot");
         return "Rebooted into android";
     }
+    public static String getDevices() {
+        return send(adb, "devices");
+    }
 
     private static String send(String mode, String arguments) {
         String output = "";
