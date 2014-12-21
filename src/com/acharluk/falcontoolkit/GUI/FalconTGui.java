@@ -35,6 +35,7 @@ public class FalconTGui extends JFrame{
     private JTextField textField2;
     private JTextField textField3;
     private JButton flashButton;
+    private JButton factoryResetButton;
 
     public FalconTGui() {
         super("MGTool");
@@ -203,7 +204,29 @@ public class FalconTGui extends JFrame{
     }
 
     void loadEasyButtons() {
+        factoryResetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int dialogResult = JOptionPane.showConfirmDialog(null, "This will wipe ALL YOUR DATA AND CACHE!","Warning", JOptionPane.YES_NO_OPTION);
+                if(dialogResult == JOptionPane.YES_OPTION) {
+                    tx.append("Rebooting into fastboot...\n");
+                    tx.append(Command.rebootToFastboot());
 
+                    tx.append("Wiping data...\n");
+                    tx.append(Command.erase("userdata"));
+                    tx.append("Data wiped.\n");
+
+                    tx.append("Wiping cache...\n");
+                    tx.append(Command.erase("cache"));
+                    tx.append("Cache wiped.\n");
+
+                    tx.append("Rebooting...\n");
+                    Command.rebootToNormalFromFastboot();
+                } else {
+                    tx.append("Factory reset aborted.\n");
+                }
+            }
+        });
     }
 
 }
