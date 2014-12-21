@@ -38,7 +38,7 @@ public class FalconTGui extends JFrame{
     private JButton factoryResetButton;
 
     public FalconTGui() {
-        super("MGTool");
+        super("FalconToolkit");
         setContentPane(mainPanel);
         pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -221,7 +221,7 @@ public class FalconTGui extends JFrame{
                     tx.append("Cache wiped.\n");
 
                     tx.append("Rebooting...\n");
-                    Command.rebootToNormalFromFastboot();
+                    tx.append(Command.rebootToNormalFromFastboot());
                 } else {
                     tx.append("Factory reset aborted.\n");
                 }
