@@ -142,7 +142,13 @@ public class FalconTGui extends JFrame{
         eraseUserdataButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append(Command.erase("userdata"));
+                int dialogResult = JOptionPane.showConfirmDialog(null, "This will wipe ALL YOUR DATA!","Warning", JOptionPane.YES_NO_OPTION);
+                if(dialogResult == JOptionPane.YES_OPTION) {
+                    tx.append(Command.erase("userdata"));
+                } else {
+                    tx.append("Wipe data aborted.\n");
+                }
+
             }
         });
         eraseModemst1Button.addActionListener(new ActionListener() {
