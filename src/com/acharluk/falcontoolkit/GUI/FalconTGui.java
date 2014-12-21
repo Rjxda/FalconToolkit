@@ -26,6 +26,15 @@ public class FalconTGui extends JFrame{
     private JButton ADBSideloadButton;
     private JButton ADBPushButton;
     private JTextField textField1;
+    private JButton eraseCacheButton;
+    private JButton eraseUserdataButton;
+    private JButton eraseModemst1Button;
+    private JButton eraseModemst2Button;
+    private JTabbedPane tabbedPane3;
+    private JButton selectFileButton;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JButton flashButton;
 
     public FalconTGui() {
         super("MGTool");
@@ -43,8 +52,6 @@ public class FalconTGui extends JFrame{
         loadEasyButtons();
 
         setVisible(true);
-
-
     }
 
     void loadMainButtons() {
@@ -126,7 +133,52 @@ public class FalconTGui extends JFrame{
     }
 
     void loadFastbootButtons() {
+        eraseCacheButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tx.append(Command.erase("cache"));
+            }
+        });
+        eraseUserdataButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tx.append(Command.erase("userdata"));
+            }
+        });
+        eraseModemst1Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tx.append(Command.erase("modemst1"));
+            }
+        });
+        eraseModemst2Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tx.append(Command.erase("modemst2"));
+            }
+        });
 
+        selectFileButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tx.append("Select file to flash\n");
+                JFileChooser fileChooser = new JFileChooser();
+                int returnValue = fileChooser.showOpenDialog(null);
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    tx.append("Selected file:" + selectedFile.getName());
+                    textField2.setText(selectedFile.getAbsolutePath());
+                } else {
+                    tx.append("Push aborted\n");
+                }
+            }
+        });
+        flashButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tx.append(Command.flash(textField3.getText(), textField2.getText()));
+            }
+        });
     }
 
     void loadOtherButtons() {

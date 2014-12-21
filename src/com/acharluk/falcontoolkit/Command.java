@@ -43,6 +43,12 @@ public class Command {
     }
 
     /* Fastboot tab */
+    public static String erase(String path) {
+        return send(fastboot, "erase " + path);
+    }
+    public static String flash(String partition, String filePath) {
+        return send(fastboot, "flash " + partition + " " + filePath);
+    }
 
     /* Other tab */
     public static String killADBServer() {
