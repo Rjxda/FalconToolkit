@@ -1,6 +1,7 @@
 package com.acharluk.falcontoolkit.GUI;
 
 import com.acharluk.falcontoolkit.Command;
+import com.acharluk.falcontoolkit.Main;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -26,24 +27,31 @@ public class FalconTGui extends JFrame{
     private JButton ADBSideloadButton;
     private JButton ADBPushButton;
     private JTextField textField1;
-    private JButton eraseCacheButton;
+    private JButton eraseButton;
     private JButton eraseUserdataButton;
     private JButton eraseModemst1Button;
     private JButton eraseModemst2Button;
     private JTabbedPane tabbedPane3;
     private JButton selectFileButton;
     private JTextField textField2;
-    private JTextField textField3;
+    //private JTextField textField3;
     private JButton flashButton;
     private JButton factoryResetButton;
+    private JComboBox comboBox1;
+    private JComboBox comboBox2;
+    private JButton downloadButton;
+    private JButton downloadAndFlashButton;
+    private JComboBox eraseComboBox;
 
     public FalconTGui() {
-        super("FalconToolkit");
+        super("FalconToolkit " + Main.VERSION);
         setContentPane(mainPanel);
+        requestFocus();
         pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         textField1.setText("/sdcard/");
+        tx.append("FalconToolkit " + Main.VERSION + "\n");
 
         loadMainButtons();
         loadRebootButtons();
@@ -134,34 +142,10 @@ public class FalconTGui extends JFrame{
     }
 
     void loadFastbootButtons() {
-        eraseCacheButton.addActionListener(new ActionListener() {
+        eraseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append(Command.erase("cache"));
-            }
-        });
-        eraseUserdataButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int dialogResult = JOptionPane.showConfirmDialog(null, "This will wipe ALL YOUR DATA!","Warning", JOptionPane.YES_NO_OPTION);
-                if(dialogResult == JOptionPane.YES_OPTION) {
-                    tx.append(Command.erase("userdata"));
-                } else {
-                    tx.append("Wipe data aborted.\n");
-                }
-
-            }
-        });
-        eraseModemst1Button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                tx.append(Command.erase("modemst1"));
-            }
-        });
-        eraseModemst2Button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                tx.append(Command.erase("modemst2"));
+                tx.append(Command.erase(eraseComboBox.getSelectedItem().toString()));
             }
         });
 
@@ -176,14 +160,14 @@ public class FalconTGui extends JFrame{
                     tx.append("Selected file:" + selectedFile.getName());
                     textField2.setText(selectedFile.getAbsolutePath());
                 } else {
-                    tx.append("Push aborted\n");
+                    tx.append("Flash aborted\n");
                 }
             }
         });
         flashButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append(Command.flash(textField3.getText(), textField2.getText()));
+                tx.append(Command.flash(comboBox1.getSelectedItem().toString(), textField2.getText()));
             }
         });
     }
