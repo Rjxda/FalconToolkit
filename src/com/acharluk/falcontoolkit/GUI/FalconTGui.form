@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="5" left="5" bottom="5" right="5"/>
     <constraints>
-      <xy x="20" y="20" width="724" height="384"/>
+      <xy x="20" y="20" width="724" height="378"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -20,7 +20,9 @@
           <grid id="d5895" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <tabbedpane title-resource-bundle="com/acharluk/falcontoolkit/resourcebundle/en" title-key="easy.tab_name"/>
+              <tabbedpane title-resource-bundle="com/acharluk/falcontoolkit/resourcebundle/en" title-key="easy.tab_name">
+                <tooltip value=""/>
+              </tabbedpane>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -315,15 +317,17 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="751f8" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+              <component id="751f8" class="javax.swing.JComboBox" binding="downloadComboBox">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <model>
                     <item value="CWM"/>
+                    <item value="CWM Touch"/>
                     <item value="Philz"/>
                     <item value="TWRP"/>
+                    <item value="TWRP GPE"/>
                   </model>
                 </properties>
               </component>
@@ -360,18 +364,6 @@
           </grid>
         </children>
       </tabbedpane>
-      <component id="3e981" class="javax.swing.JTextArea" binding="tx">
-        <constraints>
-          <grid row="0" column="1" row-span="3" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <minimum-size width="500" height="300"/>
-            <preferred-size width="500" height="300"/>
-            <maximum-size width="500" height="300"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value=""/>
-        </properties>
-      </component>
       <component id="efddc" class="javax.swing.JButton" binding="exitButton" default-binding="true">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -386,6 +378,18 @@
         </constraints>
         <properties>
           <text resource-bundle="com/acharluk/falcontoolkit/resourcebundle/en" key="main.adb_devices"/>
+        </properties>
+      </component>
+      <component id="3e981" class="javax.swing.JTextArea" binding="tx">
+        <constraints>
+          <grid row="0" column="1" row-span="3" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="500" height="300"/>
+            <preferred-size width="500" height="300"/>
+            <maximum-size width="5000" height="3000"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value=""/>
         </properties>
       </component>
     </children>

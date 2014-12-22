@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="FalconToolkit:jar">
+  <artifact type="jar" build-on-make="true" name="FalconToolkit:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/FalconToolkit_jar</output-path>
     <root id="archive" name="FalconToolkit.jar">
       <element id="module-output" name="FalconToolkit" />
