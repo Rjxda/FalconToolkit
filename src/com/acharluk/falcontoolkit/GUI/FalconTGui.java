@@ -42,6 +42,7 @@ public class FalconTGui extends JFrame{
     private JButton downloadButton;
     private JButton downloadAndFlashButton;
     private JComboBox eraseComboBox;
+    private JButton installAPKButton;
 
     public FalconTGui() {
         super("FalconToolkit " + Main.VERSION);
@@ -51,7 +52,7 @@ public class FalconTGui extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         textField1.setText("/sdcard/");
-        tx.append("FalconToolkit " + Main.VERSION + "\n");
+        log("FalconToolkit " + Main.VERSION);
 
         loadMainButtons();
         loadRebootButtons();
@@ -61,13 +62,14 @@ public class FalconTGui extends JFrame{
         loadEasyButtons();
 
         setVisible(true);
+
     }
 
     void loadMainButtons() {
         ADBDevicesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append(Command.getDevices());
+                log(Command.getDevices());
             }
         });
         exitButton.addActionListener(new ActionListener() {
@@ -82,25 +84,25 @@ public class FalconTGui extends JFrame{
         normalADBButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append(Command.rebootToNormalFromADB());
+                log(Command.rebootToNormalFromADB());
             }
         });
         normalFastbootButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append(Command.rebootToNormalFromFastboot());
+                log(Command.rebootToNormalFromFastboot());
             }
         });
         fastbootButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append(Command.rebootToFastboot());
+                log(Command.rebootToFastboot());
             }
         });
         recoveryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append(Command.rebootToRecovery());
+                log(Command.rebootToRecovery());
             }
         });
     }
@@ -109,15 +111,15 @@ public class FalconTGui extends JFrame{
         ADBSideloadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append("Select zip to sideload\n");
+                log("Select zip to sideload");
                 JFileChooser fileChooser = new JFileChooser();
                 int returnValue = fileChooser.showOpenDialog(null);
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = fileChooser.getSelectedFile();
-                    tx.append(Command.ADBSideload(selectedFile.getAbsolutePath()));
-                    tx.append("Sideload successful\n");
+                    log(Command.ADBSideload(selectedFile.getAbsolutePath()));
+                    log("Sideload successful");
                 } else {
-                    tx.append("Sideload aborted\n");
+                    log("Sideload aborted");
                 }
 
             }
@@ -126,15 +128,15 @@ public class FalconTGui extends JFrame{
         ADBPushButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append("Select file to push\n");
+                log("Select file to push");
                 JFileChooser fileChooser = new JFileChooser();
                 int returnValue = fileChooser.showOpenDialog(null);
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = fileChooser.getSelectedFile();
-                    tx.append(Command.ADBPush(selectedFile.getAbsolutePath(), textField1.getText()));
-                    tx.append("Push successful\n");
+                    log(Command.ADBPush(selectedFile.getAbsolutePath(), textField1.getText()));
+                    log("Push successful");
                 } else {
-                    tx.append("Push aborted\n");
+                    log("Push aborted");
                 }
 
             }
@@ -145,29 +147,29 @@ public class FalconTGui extends JFrame{
         eraseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append(Command.erase(eraseComboBox.getSelectedItem().toString()));
+                log(Command.erase(eraseComboBox.getSelectedItem().toString()));
             }
         });
 
         selectFileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append("Select file to flash\n");
+                log("Select file to flash");
                 JFileChooser fileChooser = new JFileChooser();
                 int returnValue = fileChooser.showOpenDialog(null);
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = fileChooser.getSelectedFile();
-                    tx.append("Selected file:" + selectedFile.getName());
+                    log("Selected file:" + selectedFile.getName());
                     textField2.setText(selectedFile.getAbsolutePath());
                 } else {
-                    tx.append("Flash aborted\n");
+                    log("Flash aborted");
                 }
             }
         });
         flashButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append(Command.flash(comboBox1.getSelectedItem().toString(), textField2.getText()));
+                log(Command.flash(comboBox1.getSelectedItem().toString(), textField2.getText()));
             }
         });
     }
@@ -176,13 +178,13 @@ public class FalconTGui extends JFrame{
         killADBButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append(Command.killADBServer());
+                log(Command.killADBServer());
             }
         });
         startADBServerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tx.append(Command.startADBServer());
+                log(Command.startADBServer());
             }
         });
     }
@@ -193,24 +195,43 @@ public class FalconTGui extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 int dialogResult = JOptionPane.showConfirmDialog(null, "This will wipe ALL YOUR DATA AND CACHE!","Warning", JOptionPane.YES_NO_OPTION);
                 if(dialogResult == JOptionPane.YES_OPTION) {
-                    tx.append("Rebooting into fastboot...\n");
-                    tx.append(Command.rebootToFastboot());
+                    log("Rebooting into fastboot...");
+                    log(Command.rebootToFastboot());
 
-                    tx.append("Wiping data...\n");
-                    tx.append(Command.erase("userdata"));
-                    tx.append("Data wiped.\n");
+                    log("Wiping data...");
+                    log(Command.erase("userdata"));
+                    log("Data wiped.");
 
-                    tx.append("Wiping cache...\n");
-                    tx.append(Command.erase("cache"));
-                    tx.append("Cache wiped.\n");
+                    log("Wiping cache...");
+                    log(Command.erase("cache"));
+                    log("Cache wiped.");
 
-                    tx.append("Rebooting...\n");
-                    tx.append(Command.rebootToNormalFromFastboot());
+                    log("Rebooting...");
+                    log(Command.rebootToNormalFromFastboot());
                 } else {
-                    tx.append("Factory reset aborted.\n");
+                    log("Factory reset aborted.");
+                }
+            }
+        });
+        installAPKButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                log("Select APK to install");
+                JFileChooser fileChooser = new JFileChooser();
+                int returnValue = fileChooser.showOpenDialog(null);
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    log("Installing:" + selectedFile.getName());
+                    log(Command.installAPK(selectedFile.getAbsolutePath()));
+                } else {
+                    log("Installation aborted");
                 }
             }
         });
     }
 
+    void log(String msg) {
+        tx.append(msg + "\n");
+    }
+    
 }

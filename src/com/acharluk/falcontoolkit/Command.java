@@ -59,6 +59,9 @@ public class Command {
     }
 
     /* Easy tab*/
+    public static String installAPK(String path) {
+        return send(adb, "install \"" + path + "\"");
+    }
 
 
     /**

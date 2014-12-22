@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class Main {
 
-    public static String VERSION = "1.1";
+    public static String VERSION = "1.2";
 
     public static void main(String[] args) {
         try {
