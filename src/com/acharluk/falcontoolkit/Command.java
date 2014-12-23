@@ -19,19 +19,19 @@ public class Command {
     /* Reboot tab */
     public static String rebootToFastboot() {
         send(adb, "reboot bootloader");
-        return "Rebooted into fastboot\n";
+        return "Rebooted into fastboot";
     }
     public static String rebootToRecovery() {
         send(adb, "reboot recovery");
-        return "Rebooted into recovery\n";
+        return "Rebooted into recovery";
     }
     public static String rebootToNormalFromADB() {
         send(adb, "reboot");
-        return "Rebooted into android\n";
+        return "Rebooted into android";
     }
     public static String rebootToNormalFromFastboot() {
         send(fastboot, "reboot");
-        return "Rebooted into android\n";
+        return "Rebooted into android";
     }
 
     /* ADB tab */
@@ -48,6 +48,9 @@ public class Command {
     }
     public static String flash(String partition, String filePath) {
         return send(fastboot, "flash " + partition + " " + filePath);
+    }
+    public static String boot(String filePath) {
+        return send(fastboot, "boot " + filePath);
     }
 
     /* Other tab */

@@ -5,6 +5,7 @@ import com.acharluk.falcontoolkit.Main;
 import com.acharluk.falcontoolkit.Reference;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -33,13 +34,9 @@ public class FalconTGui extends JFrame{
     private JButton ADBPushButton;
     private JTextField textField1;
     private JButton eraseButton;
-    private JButton eraseUserdataButton;
-    private JButton eraseModemst1Button;
-    private JButton eraseModemst2Button;
     private JTabbedPane tabbedPane3;
     private JButton selectFileButton;
     private JTextField textField2;
-    //private JTextField textField3;
     private JButton flashButton;
     private JButton factoryResetButton;
     private JComboBox comboBox1;
@@ -48,6 +45,9 @@ public class FalconTGui extends JFrame{
     private JButton downloadAndFlashButton;
     private JComboBox eraseComboBox;
     private JButton installAPKButton;
+    private JButton selectImageButton;
+    private JTextField bootImageTextField;
+    private JButton bootImageButton;
 
     public FalconTGui() {
         super("FalconToolkit " + Reference.VERSION);
@@ -178,6 +178,28 @@ public class FalconTGui extends JFrame{
                 log(Command.flash(comboBox1.getSelectedItem().toString(), textField2.getText()));
             }
         });
+        selectImageButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                int returnValue = fileChooser.showOpenDialog(null);
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    log("Selected file:" + selectedFile.getName());
+                    bootImageTextField.setText(selectedFile.getAbsolutePath());
+                } else {
+                    log("Boot aborted");
+                }
+            }
+        });
+        bootImageButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                log(Command.rebootToFastboot());
+                log("Booting selected image");
+                Command.boot(bootImageTextField.getText());
+            }
+        });
     }
 
     void loadOtherButtons() {
@@ -240,52 +262,44 @@ public class FalconTGui extends JFrame{
         downloadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String selected = downloadComboBox.getSelectedItem().toString();
-                log("Downloading, please wait...");
-                if (selected == "CWM") {
-                    downloadFile(Reference.CWM_dl, "recovery_CWM.img");
-                }
-                if (selected == "CWM Touch") {
-                    downloadFile(Reference.CWM_Touch_dl, "recovery_CWM_Touch.img");
-                }
-                if (selected == "Philz") {
-                    downloadFile(Reference.Philz_dl, "recovery_Philz.img");
-                }
-                if (selected == "TWRP") {
-                    downloadFile(Reference.TWRP_dl, "recovery_TWRP.img");
-                }
-                if (selected == "TWRP GPE") {
-                    downloadFile(Reference.TWRP_GPE_dl, "recovery_TWRP_GPE.img");
-                }
+                downloadRecovery(downloadComboBox.getSelectedItem().toString());
             }
         });
         downloadAndFlashButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String selected = downloadComboBox.getSelectedItem().toString();
-                log("Downloading, please wait...");
-                if (selected == "CWM") {
-                    downloadFile(Reference.CWM_dl, "recovery_flash.img");
-                }
-                if (selected == "CWM Touch") {
-                    downloadFile(Reference.CWM_Touch_dl, "recovery_flash.img");
-                }
-                if (selected == "Philz") {
-                    downloadFile(Reference.Philz_dl, "recovery_flash.img");
-                }
-                if (selected == "TWRP") {
-                    downloadFile(Reference.TWRP_dl, "recovery_flash.img");
-                }
-                if (selected == "TWRP GPE") {
-                    downloadFile(Reference.TWRP_GPE_dl, "recovery_flash.img");
-                }
-                log("Rebooting into fastboot");
+                downloadRecovery(downloadComboBox.getSelectedItem().toString());
+
                 Command.rebootToFastboot();
-                log("Flashing " + selected);
-                Command.flash("recovery", "recovery_flash.img");
-                log("Flash successful, now enter recovery");
+                log("Flashing recovery...");
+                Command.flash("recovery", downloadComboBox.getSelectedItem().toString() + ".img");
+                log("Flash successful, now enter recovery!");
             }
         });
+    }
+
+    void downloadRecovery(String selected) {
+        log("Downloading, please wait...");
+        if (selected.equals("CWM")) {
+            downloadFile(Reference.CWM_dl, selected + ".img");
+            return;
+        }
+        if (selected.equals("CWM Touch")) {
+            downloadFile(Reference.CWM_Touch_dl, selected + ".img");
+            return;
+        }
+        if (selected.equals("Philz")) {
+            downloadFile(Reference.Philz_dl, selected + ".img");
+            return;
+        }
+        if (selected.equals("TWRP")) {
+            downloadFile(Reference.TWRP_dl, selected + ".img");
+            return;
+        }
+        if (selected.equals("TWRP GPE")) {
+            downloadFile(Reference.TWRP_GPE_dl, selected + ".img");
+            return;
+        }
     }
 
     void downloadFile(String fileUrl, String fileName) {
