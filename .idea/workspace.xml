@@ -30,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1744868" vertical-offset="0" max-vertical-offset="682">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,28 +61,22 @@
       <file leaf-file-name="Reference.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Reference.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-              <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+              <caret line="16" column="140" selection-start-line="16" selection-start-column="140" selection-end-line="16" selection-end-column="140" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FalconTGui.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FalconTGui.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/GUI/FalconTGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4197" max-vertical-offset="5491">
-              <caret line="199" column="59" selection-start-line="199" selection-start-column="59" selection-end-line="199" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.24633431" vertical-offset="4031" max-vertical-offset="5695">
+              <caret line="263" column="45" selection-start-line="263" selection-start-column="45" selection-end-line="263" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3282#3283#0" expanded="true" />
-                <element signature="e#3345#3346#0" expanded="true" />
-                <element signature="e#3500#3501#0" expanded="true" />
-                <element signature="e#3563#3564#0" expanded="true" />
-                <element signature="e#7455#7456#0" expanded="true" />
-                <element signature="e#7515#7516#0" expanded="true" />
-                <element signature="e#7676#7677#0" expanded="true" />
-                <element signature="e#7737#7738#0" expanded="true" />
+                <element signature="e#12583#12584#0" expanded="true" />
+                <element signature="e#12620#12621#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,13 +103,13 @@
         <option value="$PROJECT_DIR$/src/lang/en_ES.lang" />
         <option value="$PROJECT_DIR$/res/ResourceBundle/en_EN.properties" />
         <option value="$PROJECT_DIR$/src/com/acharluk/falcontoolkit/resourcebundle/FalconResourceBundle.java" />
-        <option value="$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Reference.java" />
         <option value="$PROJECT_DIR$/src/com/acharluk/falcontoolkit/resourcebundle/en.properties" />
         <option value="$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Command.java" />
-        <option value="$PROJECT_DIR$/src/com/acharluk/falcontoolkit/GUI/FalconTGui.form" />
-        <option value="$PROJECT_DIR$/src/com/acharluk/falcontoolkit/GUI/FalconTGui.java" />
         <option value="$PROJECT_DIR$/src/com/acharluk/falcontoolkit/resourcebundle/es.properties" />
+        <option value="$PROJECT_DIR$/src/com/acharluk/falcontoolkit/GUI/FalconTGui.form" />
+        <option value="$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Reference.java" />
+        <option value="$PROJECT_DIR$/src/com/acharluk/falcontoolkit/GUI/FalconTGui.java" />
       </list>
     </option>
   </component>
@@ -148,6 +142,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -262,8 +258,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -537,6 +531,55 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Main.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="1462">
+          <caret line="52" column="50" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="true" />
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1795#1796#0" expanded="true" />
+            <element signature="e#1855#1856#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Reference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="357">
+          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/GUI/FalconTGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4197" max-vertical-offset="5491">
+          <caret line="199" column="59" selection-start-line="199" selection-start-column="59" selection-end-line="199" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#12583#12584#0" expanded="true" />
+            <element signature="e#12620#12621#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/GUI/FalconTGui.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="595">
           <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
           <folding>
@@ -565,14 +608,8 @@
           <caret line="233" column="30" selection-start-line="233" selection-start-column="30" selection-end-line="233" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
-            <element signature="e#3345#3346#0" expanded="true" />
-            <element signature="e#3500#3501#0" expanded="true" />
-            <element signature="e#3563#3564#0" expanded="true" />
-            <element signature="e#7455#7456#0" expanded="true" />
-            <element signature="e#7515#7516#0" expanded="true" />
-            <element signature="e#7676#7677#0" expanded="true" />
-            <element signature="e#7737#7738#0" expanded="true" />
+            <element signature="e#12583#12584#0" expanded="true" />
+            <element signature="e#12620#12621#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -586,7 +623,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="901">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -628,14 +664,8 @@
           <caret line="233" column="30" selection-start-line="233" selection-start-column="30" selection-end-line="233" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
-            <element signature="e#3345#3346#0" expanded="true" />
-            <element signature="e#3500#3501#0" expanded="true" />
-            <element signature="e#3563#3564#0" expanded="true" />
-            <element signature="e#7455#7456#0" expanded="true" />
-            <element signature="e#7515#7516#0" expanded="true" />
-            <element signature="e#7676#7677#0" expanded="true" />
-            <element signature="e#7737#7738#0" expanded="true" />
+            <element signature="e#12583#12584#0" expanded="true" />
+            <element signature="e#12620#12621#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -683,14 +713,8 @@
           <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
-            <element signature="e#3345#3346#0" expanded="true" />
-            <element signature="e#3500#3501#0" expanded="true" />
-            <element signature="e#3563#3564#0" expanded="true" />
-            <element signature="e#7455#7456#0" expanded="true" />
-            <element signature="e#7515#7516#0" expanded="true" />
-            <element signature="e#7676#7677#0" expanded="true" />
-            <element signature="e#7737#7738#0" expanded="true" />
+            <element signature="e#12583#12584#0" expanded="true" />
+            <element signature="e#12620#12621#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -725,38 +749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.55131966" vertical-offset="304" max-vertical-offset="986">
           <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/GUI/FalconTGui.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/GUI/FalconTGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2820" max-vertical-offset="5491">
-          <caret line="199" column="59" selection-start-line="199" selection-start-column="59" selection-end-line="199" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
-            <element signature="e#3345#3346#0" expanded="true" />
-            <element signature="e#3500#3501#0" expanded="true" />
-            <element signature="e#3563#3564#0" expanded="true" />
-            <element signature="e#7455#7456#0" expanded="true" />
-            <element signature="e#7515#7516#0" expanded="true" />
-            <element signature="e#7676#7677#0" expanded="true" />
-            <element signature="e#7737#7738#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Reference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -776,10 +768,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1744868" vertical-offset="0" max-vertical-offset="682">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/GUI/FalconTGui.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/Reference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+          <caret line="16" column="140" selection-start-line="16" selection-start-column="140" selection-end-line="16" selection-end-column="140" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/acharluk/falcontoolkit/GUI/FalconTGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24633431" vertical-offset="4031" max-vertical-offset="5695">
+          <caret line="263" column="45" selection-start-line="263" selection-start-column="45" selection-end-line="263" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#12583#12584#0" expanded="true" />
+            <element signature="e#12620#12621#0" expanded="true" />
           </folding>
         </state>
       </provider>

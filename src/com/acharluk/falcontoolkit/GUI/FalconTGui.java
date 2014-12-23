@@ -48,6 +48,7 @@ public class FalconTGui extends JFrame{
     private JButton selectImageButton;
     private JTextField bootImageTextField;
     private JButton bootImageButton;
+    private JButton rootButton;
 
     public FalconTGui() {
         super("FalconToolkit " + Reference.VERSION);
@@ -68,6 +69,7 @@ public class FalconTGui extends JFrame{
         loadDownloadButtons();
 
         setVisible(true);
+
 
     }
 
@@ -256,6 +258,15 @@ public class FalconTGui extends JFrame{
                 }
             }
         });
+        rootButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                downloadFile(Reference.CFRoot, "CF-Auto-Root-falconumts-falconreteu-xt1032.zip");
+                log(Command.rebootToFastboot());
+                log("Wait for download to finish and then");
+                log("extract zip and run root-windows.bat");
+            }
+        });
     }
 
     void loadDownloadButtons() {
@@ -279,7 +290,6 @@ public class FalconTGui extends JFrame{
     }
 
     void downloadRecovery(String selected) {
-        log("Downloading, please wait...");
         if (selected.equals("CWM")) {
             downloadFile(Reference.CWM_dl, selected + ".img");
             return;
@@ -303,21 +313,29 @@ public class FalconTGui extends JFrame{
     }
 
     void downloadFile(String fileUrl, String fileName) {
-        log("Download from:" + fileUrl);
-        URL website = null;
-        try {
-            website = new URL(fileUrl);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        try {
-            ReadableByteChannel rbc = Channels.newChannel(website.openStream());
-            FileOutputStream fos = new FileOutputStream(fileName);
-            fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        log("Download finished");
+        Thread dlThread = new Thread() {
+            @Override
+            public void run() {
+                URL website = null;
+                        try {
+                            website = new URL(fileUrl);
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            ReadableByteChannel rbc = Channels.newChannel(website.openStream());
+                            FileOutputStream fos = new FileOutputStream(fileName);
+                            fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+                            fos.close();
+                            log("Download finished");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+            }
+        };
+        log("Downloading from:" + fileUrl);
+        log("Please wait until download finishes...");
+        dlThread.start();
     }
 
     void log(String msg) {
