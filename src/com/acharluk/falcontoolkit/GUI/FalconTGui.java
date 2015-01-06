@@ -49,6 +49,7 @@ public class FalconTGui extends JFrame{
     private JTextField bootImageTextField;
     private JButton bootImageButton;
     private JButton rootButton;
+    private JTabbedPane tabbedPane4;
 
     public FalconTGui() {
         super("FalconToolkit " + Reference.VERSION);

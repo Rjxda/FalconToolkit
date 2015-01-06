@@ -4,7 +4,7 @@ package com.acharluk.falcontoolkit;
  * Created by ACharLuk on 22/12/2014.
  */
 public class Reference {
-    public static String VERSION = "1.2.3";
+    public static String VERSION = "1.3";
 
     /* Recoveries URLs */
     public static String CWM_dl = "http://download2.clockworkmod.com/recoveries/recovery-clockwork-6.0.4.7-falcon.img";
