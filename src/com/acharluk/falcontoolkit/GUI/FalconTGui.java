@@ -6,10 +6,13 @@ import com.acharluk.falcontoolkit.Reference;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
@@ -50,6 +53,8 @@ public class FalconTGui extends JFrame{
     private JButton bootImageButton;
     private JButton rootButton;
     private JTabbedPane tabbedPane4;
+    private JButton HTCManiaButton;
+    private JButton XDAButton;
 
     public FalconTGui() {
         super("FalconToolkit " + Reference.VERSION);
@@ -85,6 +90,26 @@ public class FalconTGui extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
+            }
+        });
+        XDAButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    openWebpage(new URI(Reference.forum_xda));
+                } catch (URISyntaxException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+        HTCManiaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    openWebpage(new URI(Reference.forum_htcmania));
+                } catch (URISyntaxException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
     }
@@ -130,10 +155,8 @@ public class FalconTGui extends JFrame{
                 } else {
                     log("Sideload aborted");
                 }
-
             }
         });
-
         ADBPushButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -147,7 +170,6 @@ public class FalconTGui extends JFrame{
                 } else {
                     log("Push aborted");
                 }
-
             }
         });
     }
@@ -159,7 +181,6 @@ public class FalconTGui extends JFrame{
                 log(Command.erase(eraseComboBox.getSelectedItem().toString()));
             }
         });
-
         selectFileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -290,6 +311,11 @@ public class FalconTGui extends JFrame{
         });
     }
 
+
+    /*
+     * Useful functions
+     */
+
     void downloadRecovery(String selected) {
         if (selected.equals("CWM")) {
             downloadFile(Reference.CWM_dl, selected + ".img");
@@ -318,25 +344,36 @@ public class FalconTGui extends JFrame{
             @Override
             public void run() {
                 URL website = null;
-                        try {
-                            website = new URL(fileUrl);
-                        } catch (MalformedURLException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            ReadableByteChannel rbc = Channels.newChannel(website.openStream());
-                            FileOutputStream fos = new FileOutputStream(fileName);
-                            fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-                            fos.close();
-                            log("Download finished");
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                try {
+                    website = new URL(fileUrl);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    ReadableByteChannel rbc = Channels.newChannel(website.openStream());
+                    FileOutputStream fos = new FileOutputStream(fileName);
+                    fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+                    fos.close();
+                    log("Download finished");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         };
         log("Downloading from:" + fileUrl);
         log("Please wait until download finishes...");
         dlThread.start();
+    }
+
+    void openWebpage(URI uri) {
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.browse(uri);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     void log(String msg) {
