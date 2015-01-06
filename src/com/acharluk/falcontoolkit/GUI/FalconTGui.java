@@ -1,11 +1,10 @@
 package com.acharluk.falcontoolkit.GUI;
 
 import com.acharluk.falcontoolkit.Command;
-import com.acharluk.falcontoolkit.Main;
 import com.acharluk.falcontoolkit.Reference;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -73,6 +72,19 @@ public class FalconTGui extends JFrame{
         loadOtherButtons();
         loadEasyButtons();
         loadDownloadButtons();
+
+        try {
+            Image img = ImageIO.read(getClass().getResource("/images/logo-xda.png"));
+            XDAButton.setIcon(new ImageIcon(img));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            Image img = ImageIO.read(getClass().getResource("/images/logo-htcmania.png"));
+            HTCManiaButton.setIcon(new ImageIcon(img));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         setVisible(true);
 

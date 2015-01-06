@@ -11,7 +11,7 @@
       <tabbedpane id="c59bf" binding="tabbedPane1" default-binding="true">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="7" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="300" height="200"/>
+            <preferred-size width="275" height="200"/>
           </grid>
         </constraints>
         <properties>
@@ -483,7 +483,7 @@
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="HTCMania"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="5cfbd" class="javax.swing.JButton" binding="XDAButton" default-binding="true">
@@ -491,7 +491,7 @@
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="XDA"/>
+          <text value=""/>
         </properties>
         <clientProperties>
           <hideActionText class="java.lang.Boolean" value="false"/>
