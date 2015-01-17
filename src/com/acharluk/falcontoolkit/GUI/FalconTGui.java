@@ -8,7 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -54,6 +56,9 @@ public class FalconTGui extends JFrame{
     private JTabbedPane tabbedPane4;
     private JButton HTCManiaButton;
     private JButton XDAButton;
+    private JButton changeDPIButton;
+    private JTextField textFielddpi;
+    private JButton getDPIButton;
 
     public FalconTGui() {
         super("FalconToolkit " + Reference.VERSION);
@@ -299,6 +304,23 @@ public class FalconTGui extends JFrame{
                 log(Command.rebootToFastboot());
                 log("Wait for download to finish and then");
                 log("extract zip and run root-windows.bat");
+            }
+        });
+        getDPIButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                log(Command.getDPI());
+            }
+        });
+        changeDPIButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int dialogResult = JOptionPane.showConfirmDialog(null, "This will change your DPI setting and reboot, are you sure?", "Warning", JOptionPane.YES_NO_OPTION);
+                if(dialogResult == JOptionPane.YES_OPTION) {
+                    log(Command.changeDPI(textFielddpi.getText()));
+                    log("Changed DPI to: " + textFielddpi.getText());
+                    log(Command.rebootToNormalFromADB());
+                }
             }
         });
     }

@@ -65,6 +65,12 @@ public class Command {
     public static String installAPK(String path) {
         return send(adb, "install \"" + path + "\"");
     }
+    public static String getDPI() {
+        return send(adb, "shell wm density");
+    }
+    public static String changeDPI(String DPI) {
+        return send(adb, "shell wm density " + DPI);
+    }
 
 
     /**
@@ -79,14 +85,14 @@ public class Command {
             Process process = Runtime.getRuntime().exec("cmd /c res\\" + mode + " " + arguments);
             InputStream in = process.getInputStream();
             int ch;
-            while((ch = in.read()) != -1) {
-                output+=((char)ch);
+            while ((ch = in.read()) != -1) {
+                output += ((char) ch);
             }
-            output+="\n";
+            output += "\n";
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return output;
+       return output;
     }
 
 }
